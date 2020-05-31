@@ -91,7 +91,7 @@
                     <a href="https://blog.laravel.com">Blog</a>
                     <a href="https://nova.laravel.com">Nova</a>
                     <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
+                    <a href="https://vapor.laravel.com"><img src="https://lh3.googleusercontent.com/proxy/refL6vpIbyMBH9HgdIMfZ0vBqyD6UAGVMb1dgVeu-g7vVjxmPTDSADUnM1lpYQc27hnDHrwn6JIT3cPFylU4_RtsP8A5HmKUOgSLhSzuEG1Q" alt=""></a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
             </div>
