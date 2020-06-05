@@ -14,7 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if(!session()->has('data'))
+    {
+        return redirect('login');
+    }
+    else{
+        return view('welcome');
+    }
+});
+
+Route::get('/logout', function () {
+    session()->forget('data');
+    return redirect('login');
 });
 
 Route::get('/register', function () {
@@ -25,6 +36,9 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::post('/register/{name, email, password, country}', 'register@register');
+Route::post('/register', 'RegisterController@insert');
 
-Route::post('/login/{email, password_login}', 'login@login');
+/*Route::post('/login', 'login@login');*/
+Route::post('/login', 'RegisterController@login');
+
+

@@ -8,20 +8,20 @@ var length = document.getElementById("length");
 
 function Validation()
 {
-  
+
     var x = document.forms["validationForm"]["name"].value;
     var y = document.forms["validationForm"]["email"].value;
 
     var p1 = document.forms["validationForm"]["password_1"].value;
     var p2 = document.forms["validationForm"]["password_2"].value;
-    if (x == "") 
+    if (x == "")
     {
-    alert("Name must be filled out");
+   /// alert("Name must be filled out");
     return false;
     }
-    if (y == "") 
+    if (y == "")
     {
-    alert("Email must be filled out");
+   /// alert("Email must be filled out");
     return false;
     }
 
@@ -40,14 +40,14 @@ if(Validation() == false){
       var basicTimeline = anime.timeline({
         autoplay: false
       });
-      
+
       var pathEls = $(".check");
       for (var i = 0; i < pathEls.length; i++) {
         var pathEl = pathEls[i];
         var offset = anime.setDashoffset(pathEl);
         pathEl.setAttribute("stroke-dashoffset", offset);
       }
-      
+
       basicTimeline
         .add({
           targets: ".text",
@@ -86,11 +86,11 @@ if(Validation() == false){
           duration: 200,
           easing: "easeInOutSine"
         });
-      
+
       $("#btn_log").click(function() {
         basicTimeline.play();
       });
-      
+
       $(".text").click(function() {
         basicTimeline.play();
       });
@@ -114,17 +114,17 @@ myInput.onblur = function() {
 myInput.onkeyup = function() {
   // Validate lowercase letters
   var lowerCaseLetters = /[a-z]/g;
-  if(myInput.value.match(lowerCaseLetters)) {  
+  if(myInput.value.match(lowerCaseLetters)) {
     letter.classList.remove("invalid");
     letter.classList.add("valid");
   } else {
     letter.classList.remove("valid");
     letter.classList.add("invalid");
   }
-  
+
   // Validate capital letters
   var upperCaseLetters = /[A-Z]/g;
-  if(myInput.value.match(upperCaseLetters)) {  
+  if(myInput.value.match(upperCaseLetters)) {
     capital.classList.remove("invalid");
     capital.classList.add("valid");
   } else {
@@ -134,14 +134,14 @@ myInput.onkeyup = function() {
 
   // Validate numbers
   var numbers = /[0-9]/g;
-  if(myInput.value.match(numbers)) {  
+  if(myInput.value.match(numbers)) {
     number.classList.remove("invalid");
     number.classList.add("valid");
   } else {
     number.classList.remove("valid");
     number.classList.add("invalid");
   }
-  
+
   // Validate length
   if(myInput.value.length >= 8) {
     length.classList.remove("invalid");

@@ -10,7 +10,8 @@
 
 @section('container')
 
-        <form name = "validationForm" method="post" onsubmit="return Validation()" action="view('register')">
+        <form name = "validationForm" method="post" onsubmit="return Validation()" action="/register">
+            {{ csrf_field() }}
             <center>
                 <label><p>Name</p></label>
                 <input type="text" required   placeholder="Your Name"name="name" id="name" class="login_input"><br>

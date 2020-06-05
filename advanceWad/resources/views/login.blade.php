@@ -8,8 +8,8 @@
 
 @section('container')
 <div id="login_page">
-    <form method="post" action="login" >
-       
+    <form method="post" action="/login" >
+        {{ csrf_field() }}
         <center>
             <h2>Member Login </h2> <br>
             <label><p>Username</p></label><br>
