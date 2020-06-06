@@ -38,7 +38,7 @@ Route::get('/login', function () {
 
 Route::post('/register', 'RegisterController@insert');
 
-/*Route::post('/login', 'login@login');*/
-Route::post('/login', 'RegisterController@login');
+Route::post('/login', 'login@login');
+/*Route::post('/login', 'RegisterController@login');*/
 
 

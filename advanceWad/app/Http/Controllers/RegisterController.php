@@ -23,34 +23,4 @@ class RegisterController extends Controller
         return view('welcome');
     }
 
-    public function login(Request $request)
-    {
-        $password = Register::where('password', $request->password_login)->first();
-
-        $email = Register::where('email', $request->email)->first();
-
-
-        $data  = Register::all();
-        foreach ($data as $d)
-        {
-            if($d->password = $password && $d->email = $email)
-            {
-                if($password->id == $email->id )
-                {
-                    return view('welcome');
-                }
-                return view('login');
-            }
-            else{
-                return view('login');
-            }
-        }
-        /*if($password != null ){
-            return view('welcome');
-        }
-        else {
-            return view('login');
-        }*/
-       /* return view('welcome');*/
-    }
 }
