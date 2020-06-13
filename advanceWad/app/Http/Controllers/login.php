@@ -12,9 +12,9 @@ class login extends Controller
     public function login(Request $request)
     {
        /* return $request->input();*/
-        $password = Register::where('password', $request->password_login)->first(); // checking pasword through query
+        $password = Register::where('password', $request->password_login)->first(); // checking if the password exist
 
-        $email = Register::where('email', $request->email)->first(); // checking email through query
+        $email = Register::where('email', $request->email)->first(); // checking email thro
 
 
         $data  = Register::all();

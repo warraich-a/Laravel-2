@@ -36,9 +36,36 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::post('/register', 'RegisterController@insert');
+/*Route::post('/register1', 'RegisterController@insert');
 
-Route::post('/login', 'login@login');
+/*Route::post('/login', 'login@login');*/
 /*Route::post('/login', 'RegisterController@login');*/
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+Route::post('/login/custom', [
+    'uses' => 'loginController@login',
+    'as' => 'login.custom'
+]);
+
+Route::post('/register1', [
+    'uses' => 'RegisterController@insert',
+    'as' => 'register1'
+]);
+
+Route::group(['middleware' => 'auth'], function(){
+
+    Route::get('/home', function () {
+        return view('home');
+    })->name('home');
+
+
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+});

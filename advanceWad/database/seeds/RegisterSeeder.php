@@ -17,5 +17,13 @@ class RegisterSeeder extends Seeder
             'password' => Str::random(8),
             'country' => Str::random(8)
         ]);
+
+        DB::table('registration')->insert([
+            'name' => Str::random(30),
+            'email' => Str::random(30),
+            'password' => Str::random(8),
+            'country' => Str::random(8)
+        ]);
     }
+
 }
