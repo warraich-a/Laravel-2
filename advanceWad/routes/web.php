@@ -19,7 +19,7 @@ Route::get('/', function () {
         return redirect('login');
     }
     else{
-        return view('welcome');
+        return view('home');
     }
 });
 
@@ -47,12 +47,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
-Route::post('/login/custom', [
+Route::post('/home', [
     'uses' => 'loginController@login',
-    'as' => 'login.custom'
+    'as' => 'home'
 ]);
 
-Route::post('/register1', [
+Route::post('/register', [
     'uses' => 'RegisterController@insert',
     'as' => 'register1'
 ]);
@@ -68,4 +68,9 @@ Route::group(['middleware' => 'auth'], function(){
         return view('dashboard');
     })->name('dashboard');
 
+});
+Route::get('/profile/{user}', 'ProfileController@show')->name('users.profile');
+
+Route::get('/profile', function (){
+    return view('user.profile');
 });

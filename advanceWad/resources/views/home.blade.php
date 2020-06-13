@@ -1,6 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.header')
 
-@section('content')
+
+@section('title', "Register")
+
+
+@section('header')
+    @parent
+@endsection
+
+@section('container')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -13,11 +21,15 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-
                         You are logged in!
+
+                        {{$email ?? ''}}
+
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
+
 @endsection

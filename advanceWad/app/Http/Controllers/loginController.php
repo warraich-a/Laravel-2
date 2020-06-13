@@ -6,33 +6,44 @@ use App\User;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use mysql_xdevapi\Exception;
 
 class loginController extends Controller
 {
     public function login(Request $request){
 
+        try {
+            $password = User::where('password', $request->password_login)->first(); // checking if the password exist
 
-        $password = User::where('password', $request->password_login)->first(); // checking if the password exist
-
-        $email = User::where('email', $request->email)->first(); // checking email thro
+            $email = User::where('email', $request->email)->first(); // checking email thro
 
 
-        $data  = User::all();
-        foreach ($data as $d)
-        {
-            if($d->password = $$request->password_login && $d->email = $request->email) // here it will check if the data exist
+            $data  = User::all();
+
+            foreach ($data as $d)
             {
-                if($password->id == $email->id )
+                if($d->password = $password && $d->email = $email) // here it will check if the data exist
                 {
-                    return view('welcome');
-                    $request->session()->put('data', $request->input());
-                }
+                    if($password->id == $email->id )
+                    {
+                        $request->session()->put('data', $request->input());
+                        return view('home', ['email' => $email->email]);
+                    }
 
+                        echo '<script>
+					alert("Password/Username is wrong")
+					</script>';
+
+
+                }
+                else {
+                    return redirect()->back();
+                }
             }
-            else{
-                return redirect()->back();
-            }
+        }catch(PDOEXCEPTION $e) {
+            print_r("Something went wrong: " . $e->getMessage());
         }
+
       /* if(Auth::attempt([
             'email' => $request-> email,
             'password' => $request-> password_login

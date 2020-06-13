@@ -22,7 +22,8 @@ class RegisterController extends Controller
         $data->password = $request->password_1; // this is important. otherwise login wont be possible because that checks the encryption
         $data->country = $request->country;
         $data->save();
-        return view('welcome');
+        $request->session()->put('data', $request->input());
+        return redirect('profile');
     }
 
 }

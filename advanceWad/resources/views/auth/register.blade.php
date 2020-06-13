@@ -1,7 +1,7 @@
 @extends('layouts.header')
 
 
-@section('title', "Register.request")
+@section('title', "Register")
 
 
 @section('header')

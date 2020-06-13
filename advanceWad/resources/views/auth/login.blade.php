@@ -8,7 +8,7 @@
 
 @section('container')
     <div id="login_page">
-        <form method="post" action="{{ route('login.custom') }}" >
+        <form method="post" action="{{ route('home') }}" >
             {{ csrf_field() }}
             <center>
                 <h2>Member Login </h2> <br>
