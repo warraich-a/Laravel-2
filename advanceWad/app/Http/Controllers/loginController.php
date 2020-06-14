@@ -27,7 +27,7 @@ class loginController extends Controller
                     if($password->id == $email->id )
                     {
                         $request->session()->put('data', $request->input());
-                        return view('home', ['email' => $email->email]);
+                        return view('home', ['email' => $email->email, 'id' => $email->id]);
                     }
 
                         echo '<script>

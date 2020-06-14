@@ -22,6 +22,16 @@ Route::get('/', function () {
         return view('home');
     }
 });
+Route::get('/home', function () {
+    if(!session()->has('data'))
+    {
+        return redirect('login');
+    }
+    else{
+        return view('home');
+    }
+});
+
 
 Route::get('/logout', function () {
     session()->forget('data');
@@ -45,7 +55,7 @@ Route::get('/login', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+/*Route::get('/home', 'HomeController@index')->name('home');*/
 Auth::routes();
 Route::post('/home', [
     'uses' => 'loginController@login',
@@ -72,5 +82,13 @@ Route::group(['middleware' => 'auth'], function(){
 Route::get('/profile/{user}', 'ProfileController@show')->name('users.profile');
 
 Route::get('/profile', function (){
-    return view('user.profile');
+    if(!session()->has('data'))
+    {
+        return redirect('login');
+    }
+    else{
+        return view('user.profile');
+    }
+
+
 });

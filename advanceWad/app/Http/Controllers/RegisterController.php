@@ -23,7 +23,7 @@ class RegisterController extends Controller
         $data->country = $request->country;
         $data->save();
         $request->session()->put('data', $request->input());
-        return redirect('profile');
+        return view('user.profile',['email' => $request->email, 'id' => $request->id]);
     }
 
 }

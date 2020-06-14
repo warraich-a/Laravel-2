@@ -9,7 +9,7 @@
 @endsection
 
 
-@section('container')
-    Profile Page
+@section('content')
+    Profile Page {{$user->name ?? ''}}
 @endsection
 

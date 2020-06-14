@@ -47,26 +47,24 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register1') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                            @endguest
+                        @endif
+                        @if(session()->has('data'))
+                                <li class="test" id="Username_a"> <a id="">
+                                        <div class="dropdown">
+                                            <button class="dropbtn">{{$email?? ''}}</button>
+                                            <div class="dropdown-content">
+                                                <a href="/logout">Logout</a>
+                                                <a href="/profile/{{$id??''}}?? ''}}">Profile</a>
+                                                <a href="/home">Home</a>
+                                            </div>
+                                        </div>
                                     </a>
+                                </li>
+                                <li class="test" style="float: left; padding: 0;"><a href="../index.php"><div id="logo_header"></div></a></li>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
+                        @endif
+
                     </ul>
                 </div>
             </div>
